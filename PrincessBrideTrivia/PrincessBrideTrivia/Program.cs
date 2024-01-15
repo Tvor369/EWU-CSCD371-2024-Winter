@@ -7,9 +7,6 @@ public class Program
         string filePath = GetFilePath();
         Question[] questions = LoadQuestions(filePath);
 
-        
-        //Console.WriteLine("Question: " + questions[0].Answers);// DEBUGGING CODE
-
         int numberCorrect = 0;
         for (int i = 0; i < questions.Length; i++)
         {
@@ -24,7 +21,7 @@ public class Program
 
     public static string GetPercentCorrect(int numberCorrectAnswers, int numberOfQuestions)
     {
-        return (int)(((double)numberCorrectAnswers / (double)numberOfQuestions) * 100) + "%";
+        return (int)(((double)numberCorrectAnswers / (double)numberOfQuestions) * 100) + "%";//Needed to use doubles
         //return (numberCorrectAnswers / numberOfQuestions * 100) + "%";//problem line
     }
 
@@ -71,8 +68,6 @@ public class Program
     {
         string[] lines = File.ReadAllLines(filePath);
 
-        //Console.WriteLine("Line: " + lines[0]);// DEBUGGING CODE
-
         Question[] questions = new Question[lines.Length / 5];
         for (int i = 0; i < questions.Length; i++)
         {
@@ -94,11 +89,7 @@ public class Program
             question.CorrectAnswerIndex = correctAnswerIndex;
 
             questions[i] = question;//Debug: needed to actuall fill the questions object with each question  
-
-            //Console.WriteLine("Here: " + question.Text);// DEBUGGING CODE
         }
-        //Console.WriteLine("questions here: " + questions[0].Text);// DEBUGGING CODE
-
         return questions;
     }
 }
