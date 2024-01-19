@@ -21,7 +21,7 @@ public class Program
 
     public static string GetPercentCorrect(int numberCorrectAnswers, int numberOfQuestions)
     {
-        return (int)(((double)numberCorrectAnswers / (double)numberOfQuestions) * 100) + "%";//Needed to use doubles
+        return (int)((numberCorrectAnswers / (double)numberOfQuestions) * 100) + "%";//Needed to use doubles
         //return (numberCorrectAnswers / numberOfQuestions * 100) + "%";//problem line
     }
 
