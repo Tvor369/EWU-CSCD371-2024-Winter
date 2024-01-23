@@ -8,32 +8,29 @@ public class LogFactory
     private string? _filePath;
     public BaseLogger? CreateLogger(string className)
     {
-        //if(className == "FileLogger" || className == "fileLogger")//have config bool check to see if null?
+        //have config bool check to see if null?
         if(className == nameof(FileLogger))
         {
-            FileLogger fileLogger = new FileLogger(_filePath!);
-            fileLogger.className = className;
-
-            //FileLogger fileLogger = new FileLogger(_filePath);
+            FileLogger fileLogger = new FileLogger(_filePath!) { className = className };
             //fileLogger.className = className;
-            //fileLogger.SetFilePath(_filePath);
-            //fileLogger.Log(LogLevel.Warning, "");
-            
+            //ConfigureFileLogger(fileLogger.GetFilePath()!);
             return fileLogger;
         }
 
         return null;
     }
 
-    private void ConfigureFileLogger(string newFilePath)
+    public string ConfigureFileLogger(string newFilePath)
     {
         if (newFilePath != null && newFilePath != "")
         {
             _filePath = newFilePath;
+            return _filePath;
         }
         else
         {
             _filePath = null;//throw an exception?
+            throw new ArgumentNullException();
         }
     }//or make it return a bool to determine success
 }

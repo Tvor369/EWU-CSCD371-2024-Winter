@@ -5,7 +5,7 @@ namespace Logger.Tests;
 [TestClass]
 public class FileLoggerTests
 {
-    private string _filePath = "test.txt";
+    private readonly string _filePath = "test.txt";
     private FileLogger? _logger;
 
     [TestInitialize]
@@ -17,13 +17,13 @@ public class FileLoggerTests
     [TestMethod]
     public void FileLogger_CheckGetFilePath_Pass()
     {
-        Assert.AreEqual(_filePath, _logger.GetFilePath);
+        Assert.AreEqual(_filePath, _logger!.GetFilePath());
     }
 
     [TestMethod]
     public void FileLogger_CheckGetFilePath_Fail()
     {
-        Assert.AreEqual("notTest.txt", _logger.GetFilePath);
+        Assert.AreNotEqual("notTest.txt", _logger!.GetFilePath());
     }
 
 }
