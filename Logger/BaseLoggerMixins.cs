@@ -9,7 +9,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Logger cannot be null.");
+            throw new ArgumentNullException(nameof(logger), "Logger cannot be null.");
         }
 
         else
@@ -23,7 +23,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Logger cannot be null.");
+            throw new ArgumentNullException(nameof(logger), "Logger cannot be null.");
         }
 
         else
@@ -37,7 +37,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Logger cannot be null.");
+            throw new ArgumentNullException(nameof(logger), "Logger cannot be null.");
         }
 
         else
@@ -51,7 +51,7 @@ public static class BaseLoggerMixins
     {
         if (logger == null)
         {
-            throw new ArgumentNullException("Logger cannot be null.");
+            throw new ArgumentNullException(nameof(logger),"Logger cannot be null.");
         }
 
         else

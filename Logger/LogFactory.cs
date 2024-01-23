@@ -30,7 +30,7 @@ public class LogFactory
         else
         {
             _filePath = null;//throw an exception?
-            throw new ArgumentNullException("File Path not set.");
+            throw new ArgumentNullException(_filePath,"File Path not set.");
         }
     }//or make it return a bool to determine success
 }

@@ -5,15 +5,10 @@ using System.IO;
 using System.Security;
 using System.Text;
 
-public class FileLogger : BaseLogger
+public class FileLogger(string? fileName) : BaseLogger
 {
 
-    private string? _filePath;
-
-    public FileLogger(string? fileName)
-    {
-        _filePath = fileName;
-    }
+    private string? _filePath = fileName;
 
     public override void Log(LogLevel logLevel, string message)
     {
