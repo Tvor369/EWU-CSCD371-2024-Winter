@@ -6,7 +6,7 @@ namespace Logger.Tests;
 public class LogFactoryTests
 {
 
-    [TestMethod]//Methode_Condition_Pass/Fail()
+    [TestMethod]//Method_Condition_Pass/Fail()
 
     public void CreateLogger_ValidPath_Pass()
     {

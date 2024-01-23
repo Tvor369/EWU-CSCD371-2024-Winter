@@ -11,7 +11,7 @@ public class LogFactory
         //have config bool check to see if null?
         if(className == nameof(FileLogger))
         {
-            FileLogger fileLogger = new(_filePath!) { className = className };
+            FileLogger fileLogger = new(_filePath!) { ClassName = className };
             //fileLogger.className = className;
             //ConfigureFileLogger(fileLogger.GetFilePath()!);
             return fileLogger;

@@ -13,13 +13,11 @@ public class FileLogger(string? fileName) : BaseLogger
     public override void Log(LogLevel logLevel, string message)
     {
         DateTime now = DateTime.Now;
-        string textToAppend = now + " " + base.className + " " + logLevel + ": " + message;
+        string textToAppend = now + " " + base.ClassName + " " + logLevel + ": " + message;
         File.AppendAllText(_filePath!, textToAppend + Environment.NewLine);
 
         //The format may vary, but an example might look like this:
         //"10/7/2019 12:38:59 AM FileLoggerTests Warning: Test message"
-
-        //Console.WriteLine(now + " " + base.className + " " + logLevel + ": " + message + Environment.NewLine);
     }
 
     public string? GetFilePath()
