@@ -11,7 +11,7 @@ public class LogFactory
         //have config bool check to see if null?
         if(className == nameof(FileLogger))
         {
-            FileLogger fileLogger = new FileLogger(_filePath!) { className = className };
+            FileLogger fileLogger = new(_filePath!) { className = className };
             //fileLogger.className = className;
             //ConfigureFileLogger(fileLogger.GetFilePath()!);
             return fileLogger;
@@ -30,7 +30,7 @@ public class LogFactory
         else
         {
             _filePath = null;//throw an exception?
-            throw new ArgumentNullException();
+            throw new ArgumentNullException("File Path not set.");
         }
     }//or make it return a bool to determine success
 }

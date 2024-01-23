@@ -19,7 +19,7 @@ public class FileLogger : BaseLogger
     {
         DateTime now = DateTime.Now;
         string textToAppend = now + " " + base.className + " " + logLevel + ": " + message;
-        File.AppendAllText(_filePath, textToAppend + Environment.NewLine);
+        File.AppendAllText(_filePath!, textToAppend + Environment.NewLine);
 
         //The format may vary, but an example might look like this:
         //"10/7/2019 12:38:59 AM FileLoggerTests Warning: Test message"
@@ -34,14 +34,7 @@ public class FileLogger : BaseLogger
 
     public void SetFilePath(string? newFilePath)
     {
-        if (newFilePath != null && newFilePath != "")
-        {
-            _filePath = newFilePath;
-        }
-        else
-        {
-            _filePath = null;
-        }
+        _filePath = newFilePath != null && newFilePath != "" ? newFilePath : null;
     }
 
 }
