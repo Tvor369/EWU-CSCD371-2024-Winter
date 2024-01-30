@@ -8,17 +8,18 @@ namespace CanHazFunny
 {
     public class Jester
     {
-        public JokeService JokeService {  get; set; }
 
-        public OutputJoke OutputJoke { get; set; }
+        public IJokeService JokeService {  get; set; }
 
-        public Jester(JokeService JokeService, OutputJoke OutputJoke) 
+        public IDisplayService DisplayService { get; set; }
+
+        public Jester(IJokeService JokeService, IDisplayService DisplayService) 
         {
             ArgumentNullException.ThrowIfNull(JokeService);
-            ArgumentNullException.ThrowIfNull(OutputJoke);
+            ArgumentNullException.ThrowIfNull(DisplayService);
 
             this.JokeService = JokeService;
-            this.OutputJoke = OutputJoke;
+            this.DisplayService = DisplayService;
             
         }
 
@@ -30,7 +31,7 @@ namespace CanHazFunny
                 joke = JokeService.GetJoke();
             } while (joke.Contains("Chuck Norris"));
 
-            OutputJoke.DisplayToScreen(joke);
+            DisplayService.DisplayToScreen(joke);
         }
         
     }

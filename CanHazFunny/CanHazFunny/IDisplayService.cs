@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny
 {
-    public interface IOutputJokeToScreen
+    public interface IDisplayService
     {
         public void DisplayToScreen(string joke);
     }

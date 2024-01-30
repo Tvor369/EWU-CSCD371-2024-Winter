@@ -1,4 +1,7 @@
-﻿namespace CanHazFunny;
+﻿using System;
+using System.IO;
+
+namespace CanHazFunny;
 
 public class Program
 {
@@ -6,9 +9,10 @@ public class Program
     {
         //Feel free to use your own setup here - this is just provided as an example
         //new Jester(new SomeReallyCoolOutputClass(), new SomeJokeServiceClass()).TellJoke();
-        Jester jester = new(new JokeService(), new OutputJoke());
+        Jester jester = new(new JokeService(), new DisplayService());
         jester.TellJoke();
         jester.TellJoke();
         jester.TellJoke();
+
     }
 }
