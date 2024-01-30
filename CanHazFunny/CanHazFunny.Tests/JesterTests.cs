@@ -42,7 +42,6 @@ public class JesterTests
     [Fact]
     public void TellJoke_SkipChuckNorrisJoke_Success()
     {
-
         string joke1 = "Chuck Norris";
         string joke2 = "new joke";
 
@@ -52,27 +51,37 @@ public class JesterTests
 
 
         var mockJokeService = new Mock<IJokeService>();
+        var mockDisplayService = new Mock<IDisplayService>();
+
         mockJokeService.Setup(jokes => jokes.GetJoke()).Returns(jokeQueue.Dequeue);
 
-        var mockOutputJoke = new Mock<IDisplayService>();
-
-        //Jester jester = new(mockJokeService.Object,new OutputJoke());
-        var jester = new Jester(mockJokeService.Object, mockOutputJoke.Object);
+        Jester jester = new(mockJokeService.Object, mockDisplayService.Object);
 
         jester.TellJoke();
 
-        mockOutputJoke.Verify(display => display.DisplayToScreen(joke2));
-       // Assert.Equal(joke2,);
+        mockDisplayService.Verify(display => display.DisplayToScreen(joke2));
     }
 
     [Fact]
     public void TellJoke_TellNonChuckNorrisJoke_Success()
     {
 
-        //string joke1 = "this joke is fine to tell";
-        //string joke2 = "why did you skip the joke before?";
+        string joke1 = "this joke is fine to tell";
+        string joke2 = "why did you skip the joke before?";
 
-        //var mockJokeService = new Mock<JokeService>();
-        //mockJokeService.Setup(jokes => jokes.GetJoke()).Returns();
+        Queue<string> jokeQueue = new();
+        jokeQueue.Enqueue(joke1);
+        jokeQueue.Enqueue(joke2);
+
+        var mockJokeService = new Mock<IJokeService>();
+        var mockDisplayService = new Mock<IDisplayService>();
+
+        mockJokeService.Setup(jokes => jokes.GetJoke()).Returns(jokeQueue.Dequeue);
+
+        Jester jester = new(mockJokeService.Object, mockDisplayService.Object);
+
+        jester.TellJoke();
+
+        mockDisplayService.Verify(display => display.DisplayToScreen(joke1));
     }
 }
