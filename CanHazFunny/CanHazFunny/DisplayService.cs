@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CanHazFunny
+namespace CanHazFunny;
+
+public class DisplayService : IDisplayService
 {
-    public class DisplayService : IDisplayService
+    public void DisplayToScreen(string joke)
     {
-        public void DisplayToScreen(string joke)
-        {
-            Console.WriteLine(joke);
-        }
+        Console.WriteLine(joke);
     }
 }

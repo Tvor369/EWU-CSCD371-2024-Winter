@@ -5,10 +5,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CanHazFunny
+namespace CanHazFunny;
+
+public interface IDisplayService
 {
-    public interface IDisplayService
-    {
-        public void DisplayToScreen(string joke);
-    }
+    public void DisplayToScreen(string joke);
 }
